@@ -63,7 +63,7 @@ body{
     border-radius: 10px;
 }
 
-/* @keyframes dino{
+@keyframes dino{
     0%{
         bottom: 0;
     }
@@ -82,4 +82,4 @@ body{
     100%{
         left: -10vw;
     }
-} */
+}
