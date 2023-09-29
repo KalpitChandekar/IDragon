@@ -6,6 +6,13 @@ document.onkeydown = function (e) {
       dino.classList.remove("animateDino");
     }, 700);
   }
+  if (e.keyCode === 39) {
+    dino = document.querySelector(".dino");
+    dinoX = parseInt(
+      window.getComputedStyle(dino, null).getPropertyValue("left")
+    );
+    dino.style.left = dinoX + 112 + "px";
+  }
 };
 
 setInterval(() => {
@@ -26,7 +33,6 @@ setInterval(() => {
 
   offsetX = Math.abs(dx - ox);
   offsetY = Math.abs(dy - oy);
-
 
   if (offsetX < 93 && offsetY < 52) {
     gameOver.style.visibility = "visible";
