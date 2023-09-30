@@ -54,8 +54,19 @@ setInterval(() => {
     setTimeout(() => {
       cross = true;
     }, 1000);
+
+    setTimeout(() => {
+      aniDur = parseFloat(
+        window
+          .getComputedStyle(obstacle, null)
+          .getPropertyValue("animation-duration")
+      );
+      newDur = aniDur - 0.1;
+      obstacle.style.animationDuration = newDur + "s";
+      console.log(newDur);
+    }, 500);
   }
-}, 100);
+}, 10);
 
 function updateScore(score) {
   scoreCount.innerHTML = "Your Score:" + score;
