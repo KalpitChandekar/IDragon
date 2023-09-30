@@ -1,3 +1,6 @@
+score = 0;
+cross = true;
+
 document.onkeydown = function (e) {
   if (e.keyCode === 38) {
     dino = document.querySelector(".dino");
@@ -44,5 +47,16 @@ setInterval(() => {
   if (offsetX < 93 && offsetY < 52) {
     gameOver.style.visibility = "visible";
     obstacle.classList.remove("obstacleAni");
+  } else if (offsetX < 145 && cross) {
+    score += 1;
+    updateScore(score);
+    cross = false;
+    setTimeout(() => {
+      cross = true;
+    }, 1000);
   }
 }, 100);
+
+function updateScore(score) {
+  scoreCount.innerHTML = "Your Score:" + score;
+}
