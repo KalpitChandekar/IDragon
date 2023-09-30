@@ -1,6 +1,12 @@
 score = 0;
 cross = true;
 
+window.onload = function () {
+  audio = new Audio("music.mp3");
+  audiogo = new Audio("gameover.mp3");
+  audio.play();
+};
+
 document.onkeydown = function (e) {
   if (e.keyCode === 38) {
     dino = document.querySelector(".dino");
@@ -44,9 +50,14 @@ setInterval(() => {
   offsetX = Math.abs(dx - ox);
   offsetY = Math.abs(dy - oy);
 
-  if (offsetX < 93 && offsetY < 52) {
-    gameOver.style.visibility = "visible";
+  if (offsetX < 73 && offsetY < 52) {
+    gameOver.innerHTML = "Game Over - Reload for Play Again";
     obstacle.classList.remove("obstacleAni");
+    audiogo.play();
+    setTimeout(() => {
+      audio.pause();
+      audiogo.pause();
+    }, 1000);
   } else if (offsetX < 145 && cross) {
     score += 1;
     updateScore(score);
@@ -62,8 +73,8 @@ setInterval(() => {
           .getPropertyValue("animation-duration")
       );
       newDur = aniDur - 0.1;
+      if (newDur < 2) newDur = 2; // Minimum speed
       obstacle.style.animationDuration = newDur + "s";
-      console.log(newDur);
     }, 500);
   }
 }, 10);

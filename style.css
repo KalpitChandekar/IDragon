@@ -5,6 +5,7 @@
 
 body {
   overflow: hidden;
+   font-family: "Ubuntu", sans-serif;
 }
 
 .gameContainer {
@@ -57,7 +58,7 @@ body {
   color: #54212f;
   font-weight: bold;
   position: absolute;
-  right: 45px;
+  left: 45px;
   top: 31px;
   border: 2px solid black;
   padding: 10px;
